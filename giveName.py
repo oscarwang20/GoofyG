@@ -1,3 +1,5 @@
+import random
+
 names ='''Patrick Ging
 Owen Yaggy
 Haotian Gan
@@ -64,4 +66,5 @@ Gavin McGinley'''
 
 names = names.split('\n')
 names.sort()
-print(names)
+i = random.randint(0,len(names))
+print(names[i])
