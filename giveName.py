@@ -1,3 +1,10 @@
+'''
+Oscar Wang
+SoftDev
+Classwork for 9/21 Name Generator
+2021-09-21
+'''
+
 import random
 
 #opens the specified file and returns a list of each line's element
