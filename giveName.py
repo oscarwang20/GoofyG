@@ -1,7 +1,7 @@
 '''
 Oscar Wang
 SoftDev
-K02a -- Classwork for 9/21 Name Generator
+Classwork for 9/21 Name Generator
 2021-09-21
 '''
 
