@@ -1,2 +1,2 @@
 # GoofyG
-Goofy Goobers Stuy Softdev
+Welcome to Goofy Goobers Stuy Softdev
