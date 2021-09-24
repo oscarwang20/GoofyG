@@ -1,2 +1,3 @@
 # OWWS
-odubz Workshop
+*softdev workshop
+-Oscar Wang
