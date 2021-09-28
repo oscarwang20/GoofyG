@@ -30,7 +30,10 @@ def picker():
         nums[i] *= 10.0
         sum += nums[i]
         nums[i] = sum
-    print(nums)
+    for i in range(len(occ)):
+        conDict[occ[i]] = nums[i]
+    print(jobDict)
+    print(conDict)
     
 
     # for i in occ:
