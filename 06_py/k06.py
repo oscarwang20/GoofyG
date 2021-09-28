@@ -7,19 +7,24 @@ import random
 
 def openCSV(fname):
     dict = {}
+    total = 0
     with open(fname) as f:
         f.readline()
         reader = csv.reader(f, delimiter = ',')
         for row in reader:
-            dict[float(row[1])] = row[0]
-        return dict
+            if 'Total' in row:
+                total = float(row.split(',')[1])
+            else: 
+                dict[float(row[1])] = row[0]
+        return dict, total
 
 def picker(a):
-    a = openCSV('occupations.csv')
+    jobDict, total = openCSV('06_py/occupations.csv')
+
 
 
 def main():
-    print(openCSV('occupations.csv'))
+    print(openCSV('06_py/occupations.csv'))
 
 if __name__ == "__main__": 
     main()
