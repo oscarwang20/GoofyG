@@ -13,18 +13,34 @@ def openCSV(fname):
         reader = csv.reader(f, delimiter = ',')
         for row in reader:
             if 'Total' in row:
-                total = float(row.split(',')[1])
+                total = float(row[1])
             else: 
-                dict[float(row[1])] = row[0]
+                dict[row[0]] = float(row[1])
         return dict, total
 
-def picker(a):
+def picker():
     jobDict, total = openCSV('06_py/occupations.csv')
+    total = total * 10
+    nums = jobDict.values()
+    # print(sum(nums))
+    occ = jobDict.keys()
+    conDict = {}
+    sum = 0
+    for i in range(len(nums)):
+        nums[i] *= 10.0
+        sum += nums[i]
+        nums[i] = sum
+    print(nums)
+    
+
+    # for i in occ:
+
+
 
 
 
 def main():
-    print(openCSV('06_py/occupations.csv'))
+    picker()
 
 if __name__ == "__main__": 
     main()
