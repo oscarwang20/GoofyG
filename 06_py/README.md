@@ -11,7 +11,7 @@
 * Dictionaries are created like this: `dict = {key: value}`
 * Dictionaries are used to recall each of the values associated with the keys. To access these values, we use `dict[key]`, which returns the value associated with the key
 
-### Lists
+### Using Lists
 * Lists are objects that store multiple values in Pyhton 
 * They are created like this: `list = [a, b, c ...]`
 * Lists can then be indexed using numbers (starting with 0) that correlate with the position of each element in the list
