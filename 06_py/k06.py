@@ -18,22 +18,29 @@ def openCSV(fname):
                 dict[row[0]] = float(row[1])
         return dict, total
 
-def picker():
+def makeDict():
     jobDict, total = openCSV('06_py/occupations.csv')
     total = total * 10
     nums = jobDict.values()
-    # print(sum(nums))
     occ = jobDict.keys()
     conDict = {}
     sum = 0
+     
     for i in range(len(nums)):
         nums[i] *= 10.0
         sum += nums[i]
         nums[i] = sum
     for i in range(len(occ)):
         conDict[occ[i]] = nums[i]
-    print(jobDict)
-    print(conDict)
+    return conDict
+
+def picker():
+    dict = makeDict()
+    # randIndx = random.randint(0,998)
+    # for i in dict.keys():
+    #     print(dict.get(i))
+
+
     
 
     # for i in occ:
