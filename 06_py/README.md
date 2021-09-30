@@ -25,6 +25,7 @@
 * Hashtags are used to indicate headings - using less hastags indicates a heading of lower number / higher precedent and more hashtgs indicates a further subheading
 * Using a single astrisk on each side of a chunk of text is one way to italicize it, two will make it bold
 * More of github-flavoured markdown can be learned by perusing the documentation that github provides or asking questions in an appropriate discussion
+<<<<<<< HEAD
 
 ### Weighed Randomized Selection
 * We decided that the easiest way to implement weighted randomization would be to
@@ -35,3 +36,5 @@ that section being picked.
 * We accomplished this by iterating through our
 dictionary and modifying the values to be the sum of all the values we had previously
 iterated through.
+=======
+>>>>>>> 1cac7e3c1c6e9393e13e8b380095ea926a7d8dad
