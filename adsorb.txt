@@ -1,0 +1,10 @@
+Differences/Similarities: 
+Addition vs Subtraction
+- There were two main methods of computing the probability: addition and subtraction 
+- addition uses the cumulative sum of each of the probabilities at each occupation
+- subtraction subtracts each individual probability from the total until it reaches 0 or less than 0, then chooses whichever occupation caused that change
+- some of us defined test functions to see whether or not the probabilities of an occupation matched what was shows in the csv file
+
+Questions: 
+- does using multiple decimal places and rounding for the probabilities change the chances of selecting a particular occupation?
+-  
