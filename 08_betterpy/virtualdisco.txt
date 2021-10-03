@@ -19,7 +19,7 @@ How use?
 - virtual environments can be activated by running `$ source env/bin/activate`
 - for our purposes, `env` should be repalced with `myherozero`
 - activating the virtual environemnt also changes the $PATH of the terminal (this can be checked by running `$ echo $PATH`)
-- to deactivate the virtual environment, run $ deactivate
+- to deactivate the virtual environment, run `$ deactivate`
 - now, running `$ echo $PATH` will return a different path than before
 
 Sources: 
