@@ -1,0 +1,42 @@
+Julia Nelson + , Oscar Wang + Alfred
+SoftDev
+K09: Simple Path to Greatness 
+2021-10-03
+
+Q0:
+In Java a similar syntax is used to declare an instance of a class.
+(ie: Dog a = new Dog())
+
+Q1:
+The '/' character is used in the terminal to indicate a path to a 
+directory. When changing directory using cd, the '/' character 
+becomes useful when the user wants to change directories multiple
+times with one command. Alternatively, running `cd /` takes the user
+to the root directory of their computer. The '/' character is also 
+used in Java to create inline comments.
+
+Q2: 
+`print(__name__)` will print the name of the file the command is
+being run from into the terminal running it. In this case, it
+will be 'app.py'. 
+######################
+After running, this did print to the terminal in the following line:
+` * Serving Flask app 'app' (lazy loading)`.
+
+Q3:
+This will not appear anywhere because it is being returned from the
+function as an output, but Python doesn't have anything to do with 
+the output.
+######################
+After running, "No hablo queso!" appeared on the web server with the 
+URL `http://127.0.0.1:5000/`, which was indicated by the terminal output
+after running `python3 app.py` in the terminal by this line:
+` * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)`
+
+Q4: 
+This looks like calling a function within a class. The class in this
+case is 'Flask', which is being stored in the variable 'app' and the
+function is 'run()'.
+
+Question: 
+What is the difference between this and localhost:8000?
