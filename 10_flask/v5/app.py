@@ -4,6 +4,7 @@
 
 from flask import Flask
 import random
+import csv
 app = Flask(__name__) #create instance of class Flask
 
 def openCSV(fname):
@@ -77,6 +78,7 @@ def hello_world():
     <b>Your randomized output: </b> {picker()}
     '''
     print(__name__)   #where will this go?
-    return "No hablo queso!"
+    return output
 
+app.debug = True
 app.run()
