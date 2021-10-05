@@ -72,12 +72,25 @@ def test_probs(n):
         testResults[i] = [testResults[i], round(testResults[i] / n * 10000) / 100]
     print(testResults)
 
+def getList():
+    testResults, total = openCSV('occupations.csv')
+    HTMLList = '''
+    <ul>
+    '''
+    occupations = testResults.keys()
+    for i in occupations:
+        HTMLList += f"<li>{i}</li>\n"
+    HTMLList += "</ul>"
+    return HTMLList
+
+
 @app.route("/")       #assign fxn to route
 def hello_world():
     output = f'''
-    <b>Your randomized output: </b> {picker()}
+    <b>Your randomized output: </b> {picker()} {getList()}
     '''
     print(__name__)   #where will this go?
     return output
 
+app.debug = True
 app.run()
