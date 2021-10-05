@@ -80,5 +80,4 @@ def hello_world():
     print(__name__)   #where will this go?
     return output
 
-app.debug = True
 app.run()
