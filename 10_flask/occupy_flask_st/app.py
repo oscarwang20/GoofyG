@@ -1,24 +1,12 @@
-# Goofy Goobers - Oscar Wang, Owen Yaggy, Julia Nelson
+# Oscar Wang
 # SoftDev
-# K06 -- Return a random professional field based on the percentage of jobs in that field
-# 2021-09-28
+# Oct 2021
 
-## OUR APPROACH ##
-# We first figured out how to read a CSV file using the documentation for the csv module
-# After reading the data and storing it in a dictionary, we converted that dictionary to
-# one where the keys/percentages are consecutive sums of all of the percentages of the
-# prior keys in the dictionary. We decided to do this because it allows us to treat the
-# dictionary as one continuous scale, making it easy to randomly pick a point along that
-# scale and associate it with a profession. We divided our program into functions for
-# readability and ease of use. This also allowed us to test our program with a separate
-# function.
-
-# import csv to process the csv file and random to pick a random occupation
-import csv
+from flask import Flask
 import random
+import csv
+app = Flask(__name__) #create instance of class Flask
 
-# reads the .csv file and returns a dictionary with (key: value) pairs correlating to 
-#  the occupation and its chance of being picked, along with the sum of these chances
 def openCSV(fname):
     # creates an empty dictionary and sets the temp_total and total to 0
     dict = {}
@@ -84,11 +72,33 @@ def test_probs(n):
         testResults[i] = [testResults[i], round(testResults[i] / n * 10000) / 100]
     print(testResults)
 
+def getList():
+    testResults, total = openCSV('occupations.csv')
+    HTMLList = '''
+    <ul>
+    '''
+    occupations = testResults.keys()
+    for i in occupations:
+        HTMLList += f"<li>{i}</li>\n"
+    HTMLList += "</ul>"
+    return HTMLList
 
-def main():
-    print(picker())
-    # test_probs(10000)
 
-# calls main() as the main function
-if __name__ == "__main__":
-    main()
+@app.route("/")       #assign fxn to route
+def hello_world():
+    output = f'''
+    <head>
+    <h1>Goofy Goobers: Julia Nelson, Oscar Wang, Owen Yaggy</h1>
+    <p>SoftDev</p>
+    <p>K10: Putting Little Pieces Together</p>
+    <p>2021-10-05</p>
+    </head>
+    <body>
+    <b>Your randomized output: </b> {picker()} {getList()}
+    </body>
+    '''
+    print(__name__)   #where will this go?
+    return output
+
+app.debug = True
+app.run()
