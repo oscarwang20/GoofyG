@@ -1,0 +1,15 @@
+Goofy Goobers: Julia Nelson, Oscar Wang, Owen Yaggy
+SoftDev
+K11: Some Things Never Change
+2021-10-06
+
+Observations for app.py:
+- app.py runs the same as v4 from K10
+- using `$ flask run` in the terminal prints "app" as the name of the file of the python file
+- using `$ python3 app.py` in the app's directory displays "__main__" as the name of the file 
+
+Observations for foo:
+- booting up localhost:5000 prompted FireFox to download the .txt file
+
+Observations for foo.html:
+- booting up locakhost:5000 loaded the contents of foo.html as a webpage
