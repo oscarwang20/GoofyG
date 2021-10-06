@@ -1,6 +1,7 @@
-# Oscar Wang
+# Goofy Goobers: Julia Nelson, Oscar Wang, Owen Yaggy
 # SoftDev
-# Oct 2021
+# K10: Putting Little Pieces Together
+# 2021-10-05
 
 from flask import Flask
 import random
@@ -72,6 +73,7 @@ def test_probs(n):
         testResults[i] = [testResults[i], round(testResults[i] / n * 10000) / 100]
     print(testResults)
 
+#returns an HTML list of the occupations
 def getList():
     testResults, total = openCSV('occupations.csv')
     HTMLList = '''
@@ -85,7 +87,7 @@ def getList():
 
 
 @app.route("/")       #assign fxn to route
-def hello_world():
+def display():      #code to display the HTML on the webpage
     output = f'''
     <head>
     <h1>Goofy Goobers: Julia Nelson, Oscar Wang, Owen Yaggy</h1>
@@ -97,7 +99,6 @@ def hello_world():
     <b>Your randomized output: </b> {picker()} {getList()}
     </body>
     '''
-    print(__name__)   #where will this go?
     return output
 
 app.debug = True
