@@ -87,10 +87,12 @@ def getList():
 @app.route("/")       #assign fxn to route
 def hello_world():
     output = f'''
+    <head>
     <h1>Goofy Goobers: Julia Nelson, Oscar Wang, Owen Yaggy</h1>
     <p>Oct 2021</p>
     <p>K10: Putting Little Pieces Together</p>
     <b>Your randomized output: </b> {picker()} {getList()}
+    </head>
     '''
     print(__name__)   #where will this go?
     return output
