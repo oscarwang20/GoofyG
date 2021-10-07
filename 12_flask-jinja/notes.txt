@@ -1,0 +1,19 @@
+#Q0: What happens if you remove render_template from this line?
+- removing render_template will cuase runtime errors
+
+- no runtime erros, but loading the page at localhost:5000//my_foist_template caused an internal server error
+
+- even with app.debug = true, reloading the page after putting back render_template still cuases an error
+- correction: this was becuase I used flask run instead of python3 app.py and debug was off
+
+#Q1: Can all of your teammates confidently predict the URL to use to load this page?
+- yea http://127.0.0.1:5000/templates/model_tmplt.html
+
+- the path is not that
+- the acutal path is http://localhost:5000//my_foist_template
+
+#Q2: What is the significance of each argument?
+- the first one inidcates the name of the template file
+- the second replaces {{ foo }} with "fooooo"
+- the third replaces 'collection' in {% for item in collection %} with the list coll
+ 
