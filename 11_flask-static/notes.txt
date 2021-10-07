@@ -10,6 +10,7 @@ Observations for app.py:
 
 Observations for foo:
 - booting up localhost:5000 prompted FireFox to download the .txt file
+- `$ cat <filename>` prints the contents of a file in the terminal
 
 Observations for foo.html:
 - booting up locakhost:5000 loaded the contents of foo.html as a webpage
