@@ -1,20 +1,31 @@
 <!DOCTYPE html>
+    <style>
+        table, tr, td {
+            border: 1px solid black
+        }
+    </style>
     <head>
         <title>Pls Work</title>
-        <p>Theodore Fahey, Oscar Wang, Edwin Zheng</p>
-        <p>SoftDev</p>
-        <p>K13: Template for Success</p>
-        <p>2021-10-8</p>
+        <h1>
+            <p>Theodore Fahey, Oscar Wang, Edwin Zheng</p>
+            <p>SoftDev</p>
+        </h1>
+        <h2>
+            <p>K13: Template for Success</p>
+            <p>2021-10-8</p>
+        </h2>
     </head>
     <body>
-        {{ randOcc }}
-        <table>
-            <tr>
-                <th>Occupations</th>
-            </tr>
-            {% for item in collection %}
-                <tr> {{ item }} </tr>
-            {% endfor %}
-        </table>
+        <p><b>Your Ramdomized Output: </b><a href="{{ RL }}">{{ randOcc }}</a></p>
+        <center>
+            <table>
+                <tr>
+                    <th>Occupations</th>
+                </tr>
+                {% for item in collection %}
+                    <tr><td><a href="{{ item[1] }}"> {{ item[0] }} </a></td></tr>
+                {% endfor %}
+            </table>
+        </center>
     </body>
 </html>

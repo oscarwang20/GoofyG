@@ -1,9 +1,9 @@
-# Goofy Goobers: Julia Nelson, Oscar Wang, Owen Yaggy
+# Eccentric Pencil: Theodore Fahey, Oscar Wang, Edwin Zheng
 # SoftDev
-# K10: Putting Little Pieces Together
-# 2021-10-05
+# K13: Template for Success
+# 2021-10-08
 
-from flask import Flask
+from flask import Flask, render_template
 import random
 import csv
 app = Flask(__name__) #create instance of class Flask
@@ -34,7 +34,7 @@ def openCSV(fname):
 
 # picks an occupation based on the weighted percentages
 def picker():
-    jobDict, total = openCSV('occupations.csv')
+    jobDict, total = openCSV('data/occupations.csv')
     # we multiply the total by 10 for random.randint() to produce an int to 
     #  simulate randomly selecting an occupation
     total = total * 10
@@ -61,45 +61,46 @@ def picker():
         if (n < conDict[i]):
             return i
 
-# runs n trials to determine if the probability of the resulting occupations matches 
-#  those listed in the .csv file
-def test_probs(n):
-    testResults, total = openCSV('occupations.csv')
-    for i in testResults:
-        testResults[i] = 0
-    for i in range(n):
-        testResults[picker()] += 1
-    for i in testResults:
-        testResults[i] = [testResults[i], round(testResults[i] / n * 10000) / 100]
-    print(testResults)
-
-#returns an HTML list of the occupations
-def getList():
-    testResults, total = openCSV('occupations.csv')
-    HTMLList = '''
-    <ul>
-    '''
-    occupations = testResults.keys()
-    for i in occupations:
-        HTMLList += f"<li>{i}</li>\n"
-    HTMLList += "</ul>"
-    return HTMLList
-
-
 @app.route("/")       #assign fxn to route
 def display():      #code to display the HTML on the webpage
     output = f'''
-    <head>
-    <h1>Goofy Goobers: Julia Nelson, Oscar Wang, Owen Yaggy</h1>
-    <p>SoftDev</p>
-    <p>K10: Putting Little Pieces Together</p>
-    <p>2021-10-05</p>
-    </head>
-    <body>
-    <b>Your randomized output: </b> {picker()} {getList()}
-    </body>
+    <center><p style="font-size:100px"><a href="http://localhost:5000//occupyflaskst">GO HERE</a></p></center>
     '''
     return output
+
+@app.route("/occupyflaskst")
+def run():
+    links = [
+        ["Management","https://www.themuse.com/advice/how-to-convince-a-company-youre-ready-for-a-manager-role-before-youre-a-manager"],
+        ["Business and Financial operations","https://www.wikipedia.org/"],
+        ["Computer and Mathematical","https://www.wikipedia.org/"],
+        ["Architecture and Engineering","https://www.wikipedia.org/"],
+        ["Life, Physical and Social Science","https://www.wikipedia.org/"],
+        ["Community and Social Service","https://www.wikipedia.org/"],
+        ["Legal","https://www.wikipedia.org/"],
+        ["Education, training and library","https://www.wikipedia.org/"],
+        ["Arts, design, entertainment, sports and media","https://www.wikipedia.org/"],
+        ["Healthcare practioners and technical","https://www.wikipedia.org/"],
+        ["Healthcare support","https://www.wikipedia.org/"],
+        ["Protective service ","https://www.wikipedia.org/"],
+        ["Food preparation and serving ","https://www.wikipedia.org/"],
+        ["Building and grounds cleaning and maintenance","https://www.wikipedia.org/"],
+        ["Personal care and service","https://www.wikipedia.org/"],
+        ["Sales","https://www.wikipedia.org/"],
+        ["Office and administrative support","https://www.wikipedia.org/"],
+        ["Farming, fishing and forestry","https://www.wikipedia.org/"],
+        ["Construction and extraction","https://www.wikipedia.org/"],
+        ["Installation, maintenance and repair","https://www.wikipedia.org/"],
+        ["Production","https://www.wikipedia.org/"],
+        ["Transportation and material moving","https://www.wikipedia.org/"]
+    ]
+
+    picked = picker()
+    randLink = ''
+    for row in links:
+        if row[0] == picked:
+            randLink = row[1]
+    return render_template("tablified.html", randOcc=picked, RL=randLink, collection=links)
 
 app.debug = True
 app.run()
