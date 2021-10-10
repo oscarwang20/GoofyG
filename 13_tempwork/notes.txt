@@ -6,5 +6,3 @@
 Observations:
 - variables can be also be assigned in href links using {{}}
 - feeding html code to the flask variables does not work (it just displays it as plain text)
-
-(testing ssh key)
