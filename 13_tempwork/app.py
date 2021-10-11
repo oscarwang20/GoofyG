@@ -60,11 +60,12 @@ def display():      #code to display the HTML on the webpage
 def run(): # displays the occupations as links in a table
     data, total = openCSV("data/occupations.csv")
     links = []
-    # creates a 2d list links that stores each occupation and their respective link as given in the csv
+    # creates a 2d list called links that stores each occupation and their respective link as given in the csv
     for key in data:
         links.append([key,data[key][1]])
     picked = picker()    # randomly picks an occupation
     randLink = ''
+    links.sort()    # sorts links so that the table is in alphabetical order
     for row in links:    # appends the link to the randomly selected occupation
         if row[0] == picked:
             randLink = row[1]
