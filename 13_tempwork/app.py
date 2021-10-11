@@ -8,26 +8,21 @@ import random
 import csv
 app = Flask(__name__) #create instance of class Flask
 
+# opens the csv file and returns a dictionary of its data
+#  along with the total aggregate of the data
 def openCSV(fname):
-    # creates an empty dictionary and sets the temp_total and total to 0
     dict = {}
     temp_total = 0
     total = 0
     with open(fname) as f:
-        # ensures that the column headers are not included in the dictionary 
         f.readline()
         reader = csv.reader(f, delimiter=',')
         for row in reader:
-            # separately saves the total of the probabilities for each occupation
             if 'Total' in row:
                 total = float(row[1])
-            else:
-                # populates dictionary 'dict' with (key: value) pairs that represent
-                #  occupations and their probabilities
-                dict[row[0]] = [float(row[1]), row[2]]
-                # keeps track of consecutive sum of the values
+            else:      # the keys are the occupations and the value is a list of the corresponding percentage and link
+                dict[row[0]] = [float(row[1]), row[2]]  
                 temp_total += float(row[1])
-        # if a total is not given, sets it to the sum of the value
         if total == 0:
             total = temp_total
         return dict, total
@@ -52,22 +47,25 @@ def picker():
         if (n < conDict[i]):
             return i
 
-@app.route("/")       #assign fxn to route
+@app.route("/")       # landing page
 def display():      #code to display the HTML on the webpage
+    # HTML code to redirect to the right place
     output = f'''
     <center><p style="font-size:100px"><a href="http://localhost:5000//occupyflaskst">GO HERE</a></p></center>
     '''
     return output
 
-@app.route("/occupyflaskst")
-def run():
+
+@app.route("/occupyflaskst")    # main page
+def run(): # displays the occupations as links in a table
     data, total = openCSV("data/occupations.csv")
     links = []
+    # creates a 2d list links that stores each occupation and their respective link as given in the csv
     for key in data:
         links.append([key,data[key][1]])
-    picked = picker()
+    picked = picker()    # randomly picks an occupation
     randLink = ''
-    for row in links:
+    for row in links:    # appends the link to the randomly selected occupation
         if row[0] == picked:
             randLink = row[1]
     return render_template("tablified.html", randOcc=picked, RL=randLink, collection=links)
