@@ -1,4 +1,4 @@
-# Eccentric Pencil: Theodore Fahey, Oscar Wang, Edwin Zheng
+# Eccentric Pencil: Sadid Ethun, Theodore Fahey, Oscar Wang, Edwin Zheng
 # SoftDev
 # K13: Template for Success
 # 2021-10-08
