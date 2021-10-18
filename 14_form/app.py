@@ -40,7 +40,7 @@ def disp_loginpage():
 
 
 @app.route("/auth") # , methods=['GET', 'POST'])
-def authenticate():
+def authenticate():  # prints debug stuff in the terminal
     print("\n\n\n")
     print("***DIAG: this Flask obj ***")
     print(app)
@@ -52,8 +52,8 @@ def authenticate():
     print(request.headers)
 
 
-    username = request.args['username']
-    method = request.method
+    username = request.args['username'] # stores the username from the form in a variable
+    method = request.method # stores the form method in a variable
 
     return render_template("response.html", username=username, method=method)  #response to a form submission
 
