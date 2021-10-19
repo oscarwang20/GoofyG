@@ -37,12 +37,14 @@ def authenticate():  # prints debug stuff in the terminal
     print("***DIAG: request.headers ***")
     print(request.headers)
 
+    #stores variables
     username = request.args["username"] # stores the username from the form in a variable
     password = request.args["password"]
     method = request.method # stores the form method in a variable
     succ = True
     reason = "Error: "
 
+    #conditionals
     if username != una:
         succ = False
         reason += "Incorrect username"
