@@ -1,27 +1,11 @@
 # Forgotten Charger: Lewis Cass, Aryaman Goenka, Oscar Wang
 # Softdev
-# K14: Form and Function
-# 2021-10-14
+# K15: Sessions Greetings
+# 2021-10-18
 
-from flask import Flask             #facilitate flask webserving
-from flask import render_template   #facilitate jinja templating
-from flask import request           #facilitate form submission
-
-#the conventional way:
-#from flask import Flask, render_template, request
+from flask import Flask, render_template, request
 
 app = Flask(__name__)    #create Flask object
-
-
-'''
-trioTASK:
-~~~~~~~~~~~ BEFORE RUNNING THIS, ~~~~~~~~~~~~~~~~~~
-...read for understanding all of the code below.
-Some will work as written; other sections will not. Can you predict which?
-Devise some simple tests you can run to "take apart this engine," as it were.
-Execute your tests. Process results.
-PROTIP: Insert your own in-line comments wherever they will help your future self and/or current teammates understand what is going on.
-'''
 
 @app.route("/") #, methods=['GET', 'POST'])
 def disp_loginpage():
@@ -38,6 +22,8 @@ def disp_loginpage():
     print(request.headers)
     return render_template( 'login.html' )
 
+una = "admin"
+pwo = "admin"
 
 @app.route("/auth") # , methods=['GET', 'POST'])
 def authenticate():  # prints debug stuff in the terminal
@@ -51,15 +37,25 @@ def authenticate():  # prints debug stuff in the terminal
     print("***DIAG: request.headers ***")
     print(request.headers)
 
-
-    username = request.args['username'] # stores the username from the form in a variable
+    username = request.args["username"] # stores the username from the form in a variable
+    password = request.args["password"]
     method = request.method # stores the form method in a variable
+    succ = True
+    reason = "Error: "
 
-    return render_template("response.html", username=username, method=method)  #response to a form submission
+    if username != una:
+        succ = False
+        reason += "Incorrect username"
+    if password != pwo:
+        succ = False
+        if reason == "Error: Incorrect username":
+            reason += " and incorrect password"
+        else: 
+            reason = f"Incorrect password for username '{username}'"
 
+    return render_template("response.html", success=succ, reason=reason, username=una, password=pwo, method=method)  #response to a form submission
 
-    
 if __name__ == "__main__": #false if this file imported as module
     #enable debugging, auto-restarting of server when this file is modified
-    app.debug = True 
+    app.debug = True
     app.run()

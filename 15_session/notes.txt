@@ -1,0 +1,8 @@
+Forgotten Charger: Lewis Cass, Aryaman Goenka, Oscar Wang
+Softdev
+K15: Sessions Greetings
+2021-10-18
+
+Observations: 
+- using the placeholder tag allows input fields to show palceholder text when nothing is typed yet
+

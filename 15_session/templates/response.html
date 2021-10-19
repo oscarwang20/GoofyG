@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+    Forgotten Charger: Lewis Cass, Aryaman Goenka, Oscar Wang
+    Softdev
+    K14: Form and Function
+    2021-10-18
+
+    
+-->
+    <head>
+        <title>RESPONSE PAGE</title>
+        <h2>
+            <p>Forgotten Charger: Lewis Cass, Aryaman Goenka, Oscar Wang</p>
+            <p>Softdev</p>
+            <p>K15: Sessions Greetings</p>
+            <p>2021-10-18</p>
+        </h2>
+    </head>
+    <body>
+        {% if success %} 
+            <p>Welcome, {{ username }}, to the</p>
+            <h1>🅂🄾🄲🄸🄴🅃🅈   🄾🄵   🄵🄾🅁🄶🄾🅃🅃🄴🄽   🄲🄷🄰🅁🄶🄴🅁🅂!</h1>
+        {% else %}
+            <p>{{ reason }}</p>
+        {% endif %}
+        
+    </body>
+</html>
