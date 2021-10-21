@@ -3,11 +3,11 @@
 # K15: Sessions Greetings
 # 2021-10-18
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 
 app = Flask(__name__)    #create Flask object
 
-@app.route("/") #, methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def disp_loginpage():
     print("\n\n\n")
     print("***DIAG: this Flask obj ***")
@@ -25,7 +25,7 @@ def disp_loginpage():
 una = "admin"
 pwo = "admin"
 
-@app.route("/auth") # , methods=['GET', 'POST'])
+@app.route("/auth", methods=['GET', 'POST'])
 def authenticate():  # prints debug stuff in the terminal
     print("\n\n\n")
     print("***DIAG: this Flask obj ***")
