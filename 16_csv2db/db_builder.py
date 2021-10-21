@@ -14,12 +14,37 @@ c = db.cursor()               #facilitate db ops -- you will use cursor to trigg
 
 #==========================================================
 
-
-# < < < INSERT YOUR TEAM'S POPULATE-THE-DB CODE HERE > > >
-
-
-command = ""          # test SQL stmt in sqlite3 shell, save as string
+command = "CREATE TABLE students (name TEXT, age INTEGER, id INTEGER);"          # test SQL stmt in sqlite3 shell, save as string
 c.execute(command)    # run SQL statement
+
+def getstudents(file):
+    with open(file) as f:
+        reader = csv.DictReader(f)
+        for row in reader: 
+            name = row['name']
+            age = int(row['age'])
+            id = int(row['id'])
+            # print(name, age, id)
+            command = f"INSERT INTO students VALUES ('{name}', {age}, {id});"
+            c.execute(command)
+
+getstudents("students.csv")
+
+command = "CREATE TABLE courses (course TEXT, mark INTEGER, id INTEGER);"
+c.execute(command)
+
+def getcourses(file):
+    with open(file) as f:
+        reader = csv.DictReader(f)
+        for row in reader: 
+            course = row["code"]
+            mark = int(row["mark"])
+            id = int(row["id"])
+            # print(course, mark, id)
+            command = f"INSERT INTO courses VALUES ('{course}', {mark}, {id});"
+            c.execute(command)
+
+getcourses("courses.csv")
 
 #==========================================================
 
