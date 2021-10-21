@@ -5,4 +5,4 @@ K15: Sessions Greetings
 
 Observations: 
 - using the placeholder tag allows input fields to show palceholder text when nothing is typed yet
-
+- 
