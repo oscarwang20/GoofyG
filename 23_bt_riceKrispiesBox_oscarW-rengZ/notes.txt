@@ -1,0 +1,1 @@
+container-fluid makes the content resize with max width
