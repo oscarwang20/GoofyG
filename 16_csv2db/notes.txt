@@ -1,0 +1,10 @@
+Forgotten Charger: Lewis Cass, Aryaman Goenka, Oscar Wang
+Softdev
+K16: All About Database
+2021-10-21
+
+Observations:
+- Don't be like ary and put <> in SELECT * FROM
+- Typing `PRIMARY KEY` next to a key when creating a table sets the unique primary key that can be used to reference the data
+- `csv.DictReader()` puts the information stored in each row of the csv into a dictionary using the keys indicated by the top row
+- `DROP TABLE <name> removes a table that has already been created
