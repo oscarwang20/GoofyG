@@ -99,8 +99,11 @@ let fib = function(n){
   return fib(n - 1) + fib (n - 2);
 }
 
-let gcd = function(a, b){
-  return
+let gcd = function(a, b) {
+  if (!b) {
+    return a;
+  }
+  return gcd(b, a % b);
 }
 
 let display = function(n){
