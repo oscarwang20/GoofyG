@@ -112,3 +112,26 @@ let display = function(n){
   text.innerHTML = n;
 }
 
+let dasbut = document.getElementById("fac");
+
+dasbut.addEventListener("click", function(){
+  let n = document.getElementById("n").value;
+  display(fac(n));
+});
+
+let but2 = document.getElementById("fib");
+
+but2.addEventListener("click", function(){
+  let n = document.getElementById("n").value;
+  display(fib(n));
+});
+
+let but3 = document.getElementById("gcd");
+
+
+but3.addEventListener("click", function(){
+  let n = document.getElementById("n").value;
+  let m = document.getElementById("m").value;
+  display(gcd(n, m));
+});
+

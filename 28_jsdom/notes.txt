@@ -1,0 +1,7 @@
+docuemt create element
+element set attribut
+elem get attribute
+elem.remove
+elem.innerhtml
+e.appendchild(elem)
+e.addeventlistener(event, fxn)
