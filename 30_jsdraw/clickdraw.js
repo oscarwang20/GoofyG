@@ -52,7 +52,6 @@ let wipeCanvas = function() {
 }
 
 c.addEventListener("click", draw);
-c.addEventListener("drag", drawLine)
 let bToggler = document.getElementById("buttonToggle");
 bToggler.addEventListener("click", function() {
     toggleMode();
